@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "mytodolist-c75c2": {
+      "hosting": {
+        "MyTodoList": [
+          "mytodolist-c75c2"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "mytodolist-c75c2"
+  }
+}

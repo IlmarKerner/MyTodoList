@@ -1,0 +1,15 @@
+<mat-card class="headerbar">
+    <mat-card-content class="headercontent">
+        <h1>My todo list</h1>
+    </mat-card-content>
+    <div class="timecontainer">
+        <h2 id="hour">{{ currentTime.getHours() }}</h2>
+        <h2>:</h2>
+        <h2 id="minutes">{{ currentTime.getMinutes() }}</h2>
+        <h2>:</h2>
+        <h2 id="seconds">{{ currentTime.getSeconds() }}</h2>
+    </div>
+    <button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
+        <mat-icon class="mat-icon">add</mat-icon>
+      </button>
+</mat-card>
