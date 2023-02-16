@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./todo-container.component.scss']
 })
 export class TodoContainerComponent{
+  todo: string = '';
+  
   ngOnInit(): void {
     
 
 
+
+  }
+
+  openDialog() {
 
   }
 
