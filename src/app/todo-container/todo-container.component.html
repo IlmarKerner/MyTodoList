@@ -1,14 +1,13 @@
-<div>
-    <li>
-        <mat-form-field appearance="fill">
-            <mat-label>What's your name?</mat-label>
-            <input matInput [(ngModel)]="todo">
-        </mat-form-field>
-    </li>
-    <li>
-        <button mat-raised-button (click)="openDialog()">Pick one</button>
-    </li>
-    <li *ngIf="">
-        You chose: <i></i>
-    </li>
+<div class="todo-container" id="content-container">
+
+</div>
+
+
+<div class="fill-card d-none" id="fill-card">
+    <input type="text" placeholder="Type your title..." class="input-title" [(ngModel)]="title">
+    <textarea [(ngModel)]="description" cols="30" rows="10" class="description" placeholder="Type your description..."></textarea>
+    <div class="fill-btns">
+        <button (click)="cancel()">Cancel</button>
+        <button (click)="saveTodo()">Save</button>
+    </div>
 </div>

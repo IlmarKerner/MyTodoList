@@ -3,3 +3,129 @@
     height: 500px;
     background-color: black;
 }
+
+.fill-card {
+    width: 350px;
+    height: 390px;
+    background: linear-gradient(to bottom, blue, purple);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    .input-title {
+        width: 230px;
+        outline: none;
+        height: 30px;
+        padding: 10px 10px 10px 10px;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+    }
+    .description {
+        width: 230px;
+        border-radius: 10px;
+        padding: 10px 10px 10px 10px;
+    }
+}
+
+.show {
+    transition: all 125ms ease-in-out;
+    animation: show-animation 225ms ease-in-out;
+}
+
+.gone {
+    transition: all 125ms ease-in-out;
+    animation: gone-animation 225ms ease-in-out;
+}
+
+@keyframes show-animation {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes gone-animation {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.fill-btns {
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    button {
+        width: 100px;
+        padding: 10px;
+        background: linear-gradient(to right, red, yellow);
+        border-color: red;
+        border-radius: 10px;
+        cursor: pointer;
+        &:hover {
+            filter: brightness(1.4);
+            transition: all 125ms ease-in-out;
+        }
+    }
+}
+
+.d-none {
+    display: none;
+}
+
+.todo-container {
+    width: 95%;
+    background: linear-gradient(to bottom, blue, purple);
+    margin-left: 2.5%;
+    margin-top: 32px;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    button {
+        top: 20px;
+        right: 5%;
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(to right, red, yellow);
+    }
+}
+
+.content-card {
+    width: 250px;
+    height: 250px;
+    background: linear-gradient(to right, red, yellow);
+    border-radius: 10px;
+    margin: 10px;
+    p {
+        margin-left: 6px;
+        margin-top: 6px;
+        margin-bottom: 0;
+        text-decoration: underline;
+    }
+    .show-title {
+        width: 95%;
+        margin-left: 6px;
+    }
+    h1 {
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+    .show-description {
+        margin-left: 6px;
+        width: 95%;
+        height: 60%;
+        overflow-y: scroll;
+        flex-wrap: auto;
+    }
+}

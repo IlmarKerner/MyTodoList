@@ -3,13 +3,17 @@
         <h1>My todo list</h1>
     </mat-card-content>
     <div class="timecontainer">
-        <h2 id="hour">{{ currentTime.getHours() }}</h2>
+        <h2 id="hour">{{ getHours() }}</h2>
         <h2>:</h2>
-        <h2 id="minutes">{{ currentTime.getMinutes() }}</h2>
+        <h2 id="minutes">{{ getMinutes() }}</h2>
         <h2>:</h2>
-        <h2 id="seconds">{{ currentTime.getSeconds() }}</h2>
+        <h2 id="seconds">{{ getSeconds() }}</h2>
     </div>
-    <button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
-        <mat-icon class="mat-icon">add</mat-icon>
-      </button>
+    <div class="datecontainer">
+        <h2 id="hour">{{ getDate() }}</h2>
+        <h2>|</h2>
+        <h2 id="minutes">{{ getMonth() }}</h2>
+        <h2>|</h2>
+        <h2 id="seconds">{{ getFullYear() }}</h2>
+    </div>
 </mat-card>
