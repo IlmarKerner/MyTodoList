@@ -5,6 +5,7 @@ import {
   collection,
   setDoc,
   doc,
+  deleteDoc,
 } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
@@ -14,7 +15,6 @@ import { Observable } from 'rxjs';
   styleUrls: ['./todo-container.component.scss'],
 })
 export class TodoContainerComponent {
-  todo: string = '';
   MyTodos$: Observable<any>;
   MyTodos: Array<any>; // könnte man auch ausklammern
   title: string = '';
@@ -61,7 +61,8 @@ export class TodoContainerComponent {
     }, 225);
   }
 
-  deleteToDo(index: number){
-    this.MyTodos.splice(index, 1);
+  deleteToDo(index: number) {
+    const coll = collection(this.firestore, 'MyTodos');
+    deleteDoc(doc(coll), {this:MyTodos});
   }
 }
