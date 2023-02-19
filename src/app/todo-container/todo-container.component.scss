@@ -97,6 +97,11 @@
         position: absolute;
         width: 80px;
         height: 80px;
+        font-size: 50px;
+        color: rgb(119, 0, 0);
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
         background: linear-gradient(to right, red, yellow);
     }
 }
@@ -107,6 +112,7 @@
     background: linear-gradient(to right, red, yellow);
     border-radius: 10px;
     margin: 10px;
+    position: relative;
     p {
         margin-left: 6px;
         margin-top: 6px;
@@ -121,11 +127,27 @@
         margin-top: 8px;
         margin-bottom: 8px;
     }
-    .show-description {
-        margin-left: 6px;
-        width: 95%;
-        height: 60%;
-        overflow-y: scroll;
+}
+
+.show-description {
+    margin-left: 6px;
+    width: 95%;
+    height: 60%;
+    h1 {
         flex-wrap: auto;
+        font-size: 20px;
+    }
+}
+
+.delete-toDo {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    img {
+        width: 30px;
+        height: 30px;
     }
 }

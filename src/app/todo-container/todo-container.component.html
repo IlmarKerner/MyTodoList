@@ -1,5 +1,18 @@
 <div class="todo-container" id="content-container">
-
+    <button (click)="openEnterfield()">+</button>
+    <div class="content-card" *ngFor="let todo of MyTodos$ | async; let i = index">
+        <p>Title:</p>
+        <div class="show-title">
+            <h1>{{todo['title']}}</h1>
+        </div>
+        <p>Description:</p>
+        <div class="show-description">
+            <h1> {{ todo['description']}} </h1>
+        </div>
+        <div class="delete-toDo">
+            <img src="assets/img/trash.png" (click)="deleteToDo(i)">
+        </div>
+    </div>
 </div>
 
 

@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Firestore, collectionData, collection, setDoc, doc } from '@angular/fire/firestore';
+import {
+  Firestore,
+  collectionData,
+  collection,
+  setDoc,
+  doc,
+} from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -10,21 +16,20 @@ import { Observable } from 'rxjs';
 export class TodoContainerComponent {
   todo: string = '';
   MyTodos$: Observable<any>;
-  MyTodos:Array<any>; // könnte man auch ausklammern
-  title:string = '';
-  description:string = '';
+  MyTodos: Array<any>; // könnte man auch ausklammern
+  title: string = '';
+  description: string = '';
 
   constructor(private firestore: Firestore) {
     const coll = collection(firestore, 'MyTodos');
     this.MyTodos$ = collectionData(coll);
 
-    this.MyTodos$.subscribe( (newTodos) => {
-      console.log('neue todos', newTodos)
+    this.MyTodos$.subscribe((newTodos) => {
+      console.log('neue todos', newTodos);
       // alert('neuer Eintrag!') beispielhaft zusätzlich hinzugefügt
       this.MyTodos = newTodos;
     });
   }
-
 
   ngOnInit(): void {}
 
@@ -35,18 +40,28 @@ export class TodoContainerComponent {
   }
 
   saveTodo() {
-    const coll = collection(this.firestore, 'MyTodos');
-    setDoc(doc(coll), {title: this.title, description: this.title}); 
-    this.title = '';
-    this.description = '';
-    this.cancel();
+    if (this.title && this.description) {
+      const coll = collection(this.firestore, 'MyTodos');
+      setDoc(doc(coll), { title: this.title, description: this.title });
+      this.title = '';
+      this.description = '';
+      this.cancel();
+    } else {
+      alert('Du musst beide Felder ausfüllen!');
+    }
   }
-  
+
   cancel() {
     document.getElementById('fill-card')?.classList.remove('show');
     document.getElementById('fill-card')?.classList.add('gone');
     setTimeout(() => {
       document.getElementById('fill-card')?.classList.add('d-none');
+      this.title = '';
+      this.description = '';
     }, 225);
+  }
+
+  deleteToDo(index: number){
+    this.MyTodos.splice(index, 1);
   }
 }
