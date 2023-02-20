@@ -6,6 +6,7 @@ import {
   setDoc,
   doc,
   deleteDoc,
+  
 } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
@@ -39,10 +40,24 @@ export class TodoContainerComponent {
     document.getElementById('fill-card')?.classList.remove('gone');
   }
 
+  // saveTodo() {
+  //   if (this.title && this.description) {
+  //     const coll = collection(this.firestore, 'MyTodos');
+  //     setDoc(doc(coll), { title: this.title, description: this.title });
+  //     this.title = '';
+  //     this.description = '';
+  //     this.cancel();
+  //   } else {
+  //     alert('Du musst beide Felder ausfüllen!');
+  //   }
+  // }
+
   saveTodo() {
     if (this.title && this.description) {
       const coll = collection(this.firestore, 'MyTodos');
-      setDoc(doc(coll), { title: this.title, description: this.title });
+      const newDocRef = doc(coll);
+      const newTodo = { title: this.title, description: this.title, id: newDocRef.id };
+      setDoc(newDocRef, newTodo);
       this.title = '';
       this.description = '';
       this.cancel();
@@ -63,6 +78,11 @@ export class TodoContainerComponent {
 
   deleteToDo(index: number) {
     const coll = collection(this.firestore, 'MyTodos');
-    deleteDoc(doc(coll), {this:MyTodos});
+    const docId = this.MyTodos[index].id;
+    deleteDoc(doc(coll, docId)).then(() => {
+      console.log('Dokument erfolgreich gelöscht');
+    }).catch((error) => {
+      console.error('Fehler beim Löschen des Dokuments:', error);
+    });
   }
 }

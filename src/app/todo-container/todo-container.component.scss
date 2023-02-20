@@ -151,3 +151,20 @@
         height: 30px;
     }
 }
+
+@media (max-width: 800px) {
+    .todo-container {
+        button {
+            top: 15%;
+            left: 50%;
+            transform: translate(-50%);
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .fill-card {
+        width: 100%;
+        border-radius: 0;
+    }
+}

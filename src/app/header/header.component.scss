@@ -54,3 +54,30 @@
         padding-right: 4px;
     }
 }
+
+@media (max-width: 1150px) {
+    .headerbar {
+        h1 {
+            font-size: 30px;
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .headerbar {
+        align-items: center;
+        height: 300px;
+        justify-content: space-between;
+        h1 {
+            font-size: 30px;
+            margin-top: 20px;
+            text-align: center;
+        }
+    }
+    .timecontainer {
+        top: 30%;
+    }
+    .datecontainer {
+        top: 50%;
+    }
+}
