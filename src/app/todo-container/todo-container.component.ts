@@ -54,10 +54,10 @@ export class TodoContainerComponent {
 
   saveTodo() {
     if (this.title && this.description) {
-      const coll = collection(this.firestore, 'MyTodos');
-      const newDocRef = doc(coll);
-      const newTodo = { title: this.title, description: this.title, id: newDocRef.id };
-      setDoc(newDocRef, newTodo);
+      const coll = collection(this.firestore, 'MyTodos'); // erstellt eine Sammlung in firestore in "MyTodos"
+      const newDocRef = doc(coll); // erstellt ein Refernz für ein neues Dokument (2te Spalte)
+      const newTodo = { title: this.title, description: this.title, id: newDocRef.id }; // neues Todo-Objekt mit inhalt "title""beschreibung" und "id" wird erstellt
+      setDoc(newDocRef, newTodo); // beide Werte werden im firestore gespeichert
       this.title = '';
       this.description = '';
       this.cancel();
@@ -76,11 +76,11 @@ export class TodoContainerComponent {
     }, 225);
   }
 
-  deleteToDo(index: number) {
-    const coll = collection(this.firestore, 'MyTodos');
-    const docId = this.MyTodos[index].id;
-    deleteDoc(doc(coll, docId)).then(() => {
-      console.log('Dokument erfolgreich gelöscht');
+  deleteToDo(index: number) { //übergibt den index als nummer
+    const coll = collection(this.firestore, 'MyTodos'); //holt die daten aus dem Firestore "MyTodos" und weist diese -> der var. "coll" zu
+    const docId = this.MyTodos[index].id; // holt die Id raus und weist diese -> "docId" zu 
+    deleteDoc(doc(coll, docId)).then(() => { // löscht die id samt Inhalt der oben zugewiesnen Konstanten raus
+      console.log('Dokument erfolgreich gelöscht'); 
     }).catch((error) => {
       console.error('Fehler beim Löschen des Dokuments:', error);
     });

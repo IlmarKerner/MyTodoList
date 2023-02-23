@@ -155,16 +155,19 @@
 @media (max-width: 800px) {
     .todo-container {
         button {
-            top: 15%;
+            top: 200px;
             left: 50%;
             transform: translate(-50%);
         }
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
     .fill-card {
         width: 100%;
         border-radius: 0;
+    }
+    .content-card {
+        width: 95%;
     }
 }
